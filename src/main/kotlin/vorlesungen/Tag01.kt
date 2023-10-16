@@ -20,6 +20,10 @@ fun main() {
 
     // Bonus:
     // LiveBeispiel 2: String in die Konsole einlesen, im Programm benutzen
+    println("Hier folgt ein readln, das heißt ich soll was in die Konsole eingeben:")
+    var input = readln()
+    println("In die readln eingegeben wurde: input")
+    println("In die readln eingegeben wurde: $input")
 
 
 }
