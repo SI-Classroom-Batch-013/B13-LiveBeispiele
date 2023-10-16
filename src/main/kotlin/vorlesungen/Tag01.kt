@@ -15,6 +15,8 @@ fun main() {
     println("Halloefj aieg h;eigh ;aieglhk ;sle b124603285620495862974#&%#&^#%!*^&#^*&!^%#*& Welt")
     println("Wie geht's?")
     println("Hallo Welt !")
+    //print ohne ln: ohne zeilenumbruch
+    print("bla")
 
     // Bonus:
     // LiveBeispiel 2: String in die Konsole einlesen, im Programm benutzen
