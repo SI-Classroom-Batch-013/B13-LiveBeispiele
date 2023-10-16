@@ -16,10 +16,6 @@ fun main() {
     println("Wie geht's?")
     println("Hallo Welt !")
 
-    println("Hey")
-    println("Ho")
-    println("Let's go")
-
     // Bonus:
     // LiveBeispiel 2: String in die Konsole einlesen, im Programm benutzen
 
