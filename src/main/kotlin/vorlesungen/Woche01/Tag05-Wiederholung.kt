@@ -1,9 +1,8 @@
-package vorlesungen
+package vorlesungen.Woche01
 
 import kotlin.math.min
 import kotlin.math.max
 import kotlin.math.pow
-import kotlin.math.sqrt
 
 fun main() {
     var x: Double = 9.0

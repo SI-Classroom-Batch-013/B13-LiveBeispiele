@@ -1,4 +1,4 @@
-package vorlesungen
+package vorlesungen.Woche01
 
 fun main() {
     // Variable anlegen: Schluesselwort var - variablenname - : Datenyp - = - inhalt
