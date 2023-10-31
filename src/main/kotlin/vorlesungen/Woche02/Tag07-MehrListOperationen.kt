@@ -1,42 +1,42 @@
 package vorlesungen.Woche02
 
-fun main(){
+fun main() {
 
-    // liste anlegen: ShoppingList
-    val shoppingList: List<String> = listOf("Apfel", "Banane", "Brokkoli", "Kuchen", "Kekse", "Kaffee", "Tee")
-    // shoppingList.add()
-
-
-    // letztes Element: 3 Varianten
-    // alternative zum Inhalt des letzten index: last()
-    var lastElement: String = shoppingList.last() // shoppingList.last = ohne Klammern, last ist eine Eigenschaft. mit Klammern: Funktion
-    var last1: String = shoppingList[shoppingList.size-1]
-    var letztesElement: String = shoppingList[shoppingList.lastIndex]
-    var lastElem: String = shoppingList.get(shoppingList.lastIndex) // shoppingList.size-1
-
-    var lastIndex: Int = shoppingList.size-1 // 6
-
-    // liste in mutable (veränderbare) liste umwandeln, in neuer variable speichern:
-    val mutableShoppingList: MutableList<String> = shoppingList.toMutableList()
-    //shoppingList.add() // geht immernoch nicht, shoppingList wird nicht bearbeitet, es wird nur eine mutable Kopie davon zurueckgegeben.
-    mutableShoppingList.add("Kaugummi")
+     // liste anlegen: ShoppingList
+     val shoppingList: List<String> = listOf("Apfel", "Banane", "Brokkoli", "Kuchen", "Kekse", "Kaffee", "Tee")
+     // shoppingList.add()
 
 
+     // letztes Element: 3 Varianten
+     // alternative zum Inhalt des letzten index: last()
+     var lastElement: String = shoppingList.last() // shoppingList.last = ohne Klammern, last ist eine Eigenschaft. mit Klammern: Funktion
+     var last1: String = shoppingList[shoppingList.size-1]
+     var letztesElement: String = shoppingList[shoppingList.lastIndex]
+     var lastElem: String = shoppingList.get(shoppingList.lastIndex) // shoppingList.size-1
 
-// LESENDE OPERATIONEN: AUF LISTS UND MUTABLE LISTS
+     var lastIndex: Int = shoppingList.size-1 // 6
+
+     // liste in mutable (veränderbare) liste umwandeln, in neuer variable speichern:
+     val mutableShoppingList: MutableList<String> = shoppingList.toMutableList()
+     //shoppingList.add() // geht immernoch nicht, shoppingList wird nicht bearbeitet, es wird nur eine mutable Kopie davon zurueckgegeben.
+     mutableShoppingList.add("Kaugummi")
+
+
+
+    // LESENDE OPERATIONEN: AUF LISTS UND MUTABLE LISTS
+     println("---Schreibende Operationen: auf List und MutableList---")
+     println("(hier keine printlns, am Besten mit dem Debugger durchgehen)")
+
 
     // size, also Länge der Liste, in variable speichern
     var shoppingSize: Int = shoppingList.size
 
-    println()
-
-
     // index vs size:
     // size in lastIndex speichern
-   var lastIndex2: Int = shoppingSize-1
-//
-//
-//    // alternative zu shoppingList[0]: first()
+    var lastIndex2: Int = shoppingSize-1
+
+
+    // alternative zu shoppingList[0]: first()
     var firstElement: String = shoppingList.first()
     var firstElem2: String = shoppingList[0]
 
@@ -102,6 +102,7 @@ fun main(){
 
 
 // SCHREIBENDE OPERATIONEN: NUR MIT MUTABLE LISTS
+   println("---Schreibende Operationen: nur mit MutableList---")
 
     var mutableMovies: MutableList<String> = mutableListOf("Inception", "Barbie", "Oppenheimer", "Harry Potter", "Saw X", "The Nun 2")
 
