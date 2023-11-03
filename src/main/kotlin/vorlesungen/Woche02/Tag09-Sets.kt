@@ -82,8 +82,8 @@ fun main(){
     println("A entfernen")
     uniqueData.remove("A")
     println(uniqueData)
-    uniqueData.clear()
     println("Set komplett ausleeren:")
+    uniqueData.clear()
     println(uniqueData)
 
 
