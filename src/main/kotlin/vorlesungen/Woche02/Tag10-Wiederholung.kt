@@ -133,13 +133,7 @@ fun main() {
     println(nameMap)
     mutableNameMap["Lennart"] = 24
     println(mutableNameMap)
-
-
-
-
-
-
-
+    
     // Verschachtelte Map:
     var discographies: MutableMap<String, List<String>> = mutableMapOf(
         "Taylor Swift" to listOf("1989", "Speak Now", "Folklore", "Midnights"),
