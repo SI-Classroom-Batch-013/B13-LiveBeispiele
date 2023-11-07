@@ -52,8 +52,6 @@ fun main(){
     namensGenerator()
     namensGenerator()
     zufallsZahl()
-    zufallsZahl()
-    zufallsZahl()
 
 
     // Void Funktionen gehören nicht in ein Println
