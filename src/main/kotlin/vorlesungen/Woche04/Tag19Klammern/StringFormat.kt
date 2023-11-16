@@ -22,10 +22,24 @@ fun main(){
 //    println("%t".format(aktuelleUhrzeit))
 
     // wir brauchen ein "Formatierer" Objekt
-    val formatter = DateTimeFormatter.ofPattern("dd.MM. HH:mm:ss")
-    val formatiertesDatum = aktuelleUhrzeit.format(formatter)
+    val datumsFormat = DateTimeFormatter.ofPattern("dd.MM. ")
+    val uhrzeitFormat = DateTimeFormatter.ofPattern("HH:mm:ss")
 
-    println(formatiertesDatum)
+    val formatiertesDatum = aktuelleUhrzeit.format(datumsFormat)
+
+    print(formatiertesDatum)
+
+    while(true){
+        print(aktuelleUhrzeit.format(uhrzeitFormat))
+
+        Thread.sleep(1000)
+        aktuelleUhrzeit = LocalDateTime.now()
+
+        print("\b\b\b\b\b\b\b\b")
+
+        print("\nTest")
+        print("\b\b\b\b\b")
+    }
 
 
 }
