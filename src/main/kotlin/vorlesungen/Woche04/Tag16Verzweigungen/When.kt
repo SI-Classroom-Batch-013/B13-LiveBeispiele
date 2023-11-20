@@ -1,4 +1,3 @@
-import D15.gehaltAnzeigen
 
 fun main(){
 
