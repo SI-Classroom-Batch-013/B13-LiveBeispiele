@@ -11,6 +11,6 @@
 //    println(line1 + line2 + line3 + line4)
 //}
 //
-//fun main() {
+//fun vorlesungen.Woche05.Tag21.main() {
 //    generatePoesie()
 //}

@@ -40,5 +40,11 @@ fun main() {
 
 
     // positive Zahl eingeben und prüfen, ob sie positiv ist. wenn nicht nochmal eingeben
+    var number: Int
+    do {
+        println("Bitte positive Zahl über 0 eingeben....")
+        number = readln().toInt()
 
+    } while (number <= 0)
+    println("Prima, du hast die $number eingegeben und sie ist > 0")
 }

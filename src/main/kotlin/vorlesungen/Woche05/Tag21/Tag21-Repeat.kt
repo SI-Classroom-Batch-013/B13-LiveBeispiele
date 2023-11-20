@@ -32,6 +32,12 @@ fun main() {
 
 
     // 20-mal zufällig 1-5 mal angreifen
+    repeat(20) { it ->
+        println("\nTest Nr. ${it+1}")
+        repeat((1..5).random()) {
+            println("Attacke Nr. ${it+1}")
+        }
+    }
 
 
 }
