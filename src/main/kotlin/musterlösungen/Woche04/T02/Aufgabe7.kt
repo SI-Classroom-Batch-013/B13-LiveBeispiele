@@ -1,6 +1,6 @@
 package musterlösungen.Woche04.T02
 
-//fun vorlesungen.Woche05.Tag21.main() {
+//fun vorlesungen.Woche05.Tag21.vorlesungen.Woche05.Tag23.vorlesungen.Woche05.Tag24.main() {
 //    val duration: Int = 37
 //
 //    when  {

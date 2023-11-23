@@ -1,9 +1,6 @@
-package VORLESUNG.`W05-Schleifen`.d03
-
-import kotlin.math.sqrt
-
+package vorlesungen.Woche05.Tag23
 fun main() {
-    val lyrics = "Every night, I live and die\n" +
+    val lyrics: String = "Every night, I live and die\n" +
             "Feel the party to my bones\n" +
             "Watch the wasters blow the speakers\n" +
             "Spill my guts beneath the outdoor light\n" +
@@ -28,6 +25,8 @@ fun main() {
             "Let's go to perfect places\n".lowercase()
 
 
-    // erstmal: nur der buchstabe 'a', danach können wir weiter abstrahieren
+    // erstmal: nur den buchstaben 'a' zählen, danach können wir weiter abstrahieren
+    println("hi")
+
 
 }
