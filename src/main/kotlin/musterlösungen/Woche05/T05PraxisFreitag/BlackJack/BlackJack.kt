@@ -1,10 +1,9 @@
 package musterlösungen.Woche05.T05PraxisFreitag.BlackJack
 
-import musterlösungen.Woche05.T05PraxisFreitag.GroesserKleiner.kartendeck
 import java.lang.Exception
 
 //Auf gehts eine Runde BlackJack! das kartendeck ist eine globale Variable in GroesserKleiner
-val kartendeck: List<String> = listOf(
+val DECK_BLACK_JACK: List<String> = listOf(
     "Pik Ass", "Pik Koenig", "Pik Dame", "Pik Bube", "Pik 10", "Pik 9",
     "Pik 8", "Pik 7", "Pik 6", "Pik 5", "Pik 4", "Pik 3", "Pik 2",
     "Kreuz Ass", "Kreuz Koenig", "Kreuz Dame", "Kreuz Bube", "Kreuz 10", "Kreuz 9",
@@ -37,7 +36,7 @@ fun main(){
     do {
         var handSpieler = mutableListOf<String>()
         var pcSpieler = mutableListOf<String>()
-        var meinDeck = kartendeck.toMutableList()
+        var meinDeck = DECK_BLACK_JACK.toMutableList()
         spielrundeStarten(handSpieler, pcSpieler, meinDeck)
         println("Wie viel Geld möchtest du setzen? ")
         var geld: Double = 0.0

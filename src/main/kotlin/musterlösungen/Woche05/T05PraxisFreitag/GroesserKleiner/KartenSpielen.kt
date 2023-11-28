@@ -1,5 +1,3 @@
-package musterlösungen.Woche05.T05PraxisFreitag.GroesserKleiner
-
 val kartendeck: List<String> = listOf(
     "Pik Ass", "Pik Koenig", "Pik Dame", "Pik Bube", "Pik 10", "Pik 9",
     "Pik 8", "Pik 7", "Pik 6", "Pik 5", "Pik 4", "Pik 3", "Pik 2",
@@ -24,30 +22,30 @@ fun main() {
 
 }
 
-// mischt das als Parameter übergebene Deck
+// mischt das als Parameter uebergebene Deck
 fun mischen(deck: MutableList<String>) {
     deck.shuffle()
 }
 
-// gibt die oberste Karte aus dem Kartendeck als Rückgabewert zurück und entfernt sie auch aus diesem.
+// gibt die oberste Karte aus dem Kartendeck als Rueckgabewer zurück und entfernt sie auch aus diesem
 fun eineKarteZiehen(deck: MutableList<String>): String {
     val karte = deck.first()
     deck.remove(deck.first())
     return karte
 }
 
-// gibt die Farbe der ürbergebenen Karte zurück
+// gibt die Farbe der uerbergebenen Kart zurueck
 fun kartenFarbe(karte: String): String {
     val kartenSymbol = karte.split(" ")[0]
 
     return when (kartenSymbol) {
-        in listOf("Pik", "Kreuz") -> "schwarz"
-        in listOf("Herz", "Karo") -> "rot"
+        in listOf("Pik", "Kreuz") -> "Schwarz"
+        in listOf("Herz", "Karo") -> "Rot"
         else -> ""
     }
 }
 
-//gibt den Wert der übergebenen Karte zurück.
+//gibt den Wert der Kart als Parameter uebergebenen Kartezurueck.
 // z.B.: "Kreuz 7" -> 7  | "Herz König" -> 10 | ...
 fun kartenWert(karte: String): Int {
     val kartenWert = karte.split(" ")[1]
