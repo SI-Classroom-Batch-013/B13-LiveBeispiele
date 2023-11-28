@@ -39,6 +39,6 @@ fun main() {
 
     var car3: Car = Car("Toyota",2001,2,"schwarz", 120.0)
     car3.printInfo()
-    car3.ps
+    // car3.ps // auch nicht von aussen erreichbar, kein var davor
 
 }
