@@ -1,9 +1,7 @@
 package vorlesungen.Woche06.Tag27.School
 
 fun main() {
-    var schule1: Schule = Schule()
-    schule1.name = "Syntax"
-    schule1.adresse = "Münzstraße"
+    var schule1: Schule = Schule("Syntax", "Münzstraße", mutableListOf())
 
     // Klasse 1A
     var klasse1a: Klasse = Klasse()
@@ -12,9 +10,13 @@ fun main() {
     schule1.klassen.add(klasse1a)
 
 
-    var schueler1: Schueler = Schueler()
+    var schueler1: Schueler = Schueler(mutableListOf(),"Janis","Meyer","01.01.2001","Ligusterweg 4")
+
+
+
+
     klasse1a.addSchueler(schueler1)
-    klasse1a.schueler.addAll(mutableListOf(Schueler(), Schueler(), Schueler()))
+    //klasse1a.schueler.addAll(mutableListOf(Schueler(), Schueler(), Schueler()))
     println(klasse1a.schueler)
     schueler1.nachname = "Meyer"
     schueler1.vorname = "Janis"

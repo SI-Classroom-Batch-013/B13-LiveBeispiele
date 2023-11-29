@@ -17,7 +17,9 @@ class Car(var marke: String, var baujahr: Int, var anzahlTueren: Int, farbe: Str
 
     // sekundärer Konstruktor: mehr Attribute, ps wird nicht an this weitergegeben, da es dort nicht verlangt wird
 
-    constructor(marke: String,baujahr: Int, anzahlTueren: Int, farbe: String, ps: Double) : this(marke,baujahr,anzahlTueren,farbe)
+    constructor(marke: String,baujahr: Int, anzahlTueren: Int, farbe: String, ps: Double) : this(marke,baujahr,anzahlTueren,farbe){
+        println("PS: $ps")
+    }
 
     fun printInfo(){
         println("Marke: $marke")
@@ -32,13 +34,13 @@ fun main() {
     // auto mit primärem konstruktor erstellen
     var car1: Car = Car("VW",1999,4,"gelb")
     car1.printInfo()
-    // println(car1.farbe) // geht nicht, farbe ist anonym ohne var davor im 1. Konstruktor
+    // println(car1.farbe) // nicht von aussen erreichbar, farbe ist eine anonyme konstruktorvariable ohne var davor im 1. Konstruktor
 
     var carSekConst: Car = Car("VW", "rot")
     carSekConst.printInfo()
 
     var car3: Car = Car("Toyota",2001,2,"schwarz", 120.0)
     car3.printInfo()
-    // car3.ps // auch nicht von aussen erreichbar, kein var davor
+    // car3.ps // auch nicht von aussen erreichbar, kein var davor und auch innerhalb der klasse nur im sekundären konstruktor erreichbar, weil es nicht an den primären hochgereicht wird
 
 }
