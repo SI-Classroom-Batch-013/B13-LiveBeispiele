@@ -20,23 +20,25 @@ open class Pizza(private var name: String, val ingredients: MutableList<Ingredie
 //        }
     }
 
-    // Schnittstelle zum Zugriff auf privates Attribut name:
-    fun getName(): String {
-        return this.name
-    }
+    // Schnittstellen zum Zugriff auf privates Attribut name:
+        // getter: holt den Namen raus
+        fun getName(): String {
+            return this.name
+        }
 
-    fun setName(newName: String) {
-        this.name = newName
-    }
+        // setter: setzt den Namen neu
+        fun setName(newName: String) {
+            this.name = newName
+        }
 
     // protected Methode: nicht von aussen (zb in der main) aufrufbar, aber werden vererbt.
     protected open fun protectedMethode(){
         println("Hallo ich bin eine protected Methode, das heisst, ich bin nicht von der Main aus aufrufbar, aber ich werde vererbt.")
     }
 
-    // private Methode: nicht von aussen (zb in der main) aufrufbar, werden NICHT vererbt!
+    // private Methode: nicht von aussen (zb in der main) aufrufbar, werden auch NICHT vererbt!
     private fun privateMethode(){
-        println("Hallo ich bin eine protected Methode, das heisst, ich bin nicht von der Main aus aufrufbar, aber ich werde vererbt.")
+        println("Hallo ich bin eine private Methode, das heisst, ich bin nicht von der Main aus aufrufbar, und werde auch nicht vererbt.")
     }
 
 
