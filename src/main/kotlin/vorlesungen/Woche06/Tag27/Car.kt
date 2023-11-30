@@ -1,4 +1,4 @@
-package vorlesungen.Woche06.Tag26
+package vorlesungen.Woche06.Tag27
 
 // farbe ohne Var: anonymes Attribut, von aussen nicht anfassbar
 class Car(var marke: String, var baujahr: Int, var anzahlTueren: Int, farbe: String) {
