@@ -1,10 +1,11 @@
 val GEGNER = Gegner()
+val KRIEGER = Krieger()
 fun main() {
     println(GEGNER.lebenspunkte)
-    var held1 = Krieger()
+
 
     while (GEGNER.lebenspunkte >= 1) {
-        held1.waehleAktion()
+        KRIEGER.waehleAktion()
         println(GEGNER.lebenspunkte)
     }
 
