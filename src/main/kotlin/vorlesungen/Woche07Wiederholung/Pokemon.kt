@@ -9,29 +9,29 @@ class Pokemon(var name: String, var type: String, var level: Int = 1, var isDead
 
     // init Block: da der Primäre Konstruktor keinen eigenen Körper hat (der Körper ist ja einfach die gesamte Klasse), brauchen wir den init Block. Der wird, wie die Körper der sekundären Konstruktoren, immer beim Initialisieren = Erstellen eines konkreten Pokemons aufgerufen
     init {
-        this.hp = 3.0
+        this.hp = 9.0
         this.ep = 0.0
         this.ap = level * 3.0
 
-        println("----Primärer Konstruktor Call im init-Block----")
-        println("Pokemon $name wurde auf Level $level initialisiert.")
-        //Thread.sleep(500)
-        println("$name hat $ap AP und folgende Attacken:")
-        // Thread.sleep(500)
-        println("Tackle (${level + ap} Schaden)")
-        // Thread.sleep(500)
-        println("--Primäre Konstruktion beendet--")
+//        println("----Primärer Konstruktor Call im init-Block----")
+//        println("Pokemon $name wurde auf Level $level initialisiert.")
+//        //Thread.sleep(500)
+//        println("$name hat $ap AP und folgende Attacken:")
+//        // Thread.sleep(500)
+//        println("Tackle (${level + ap} Schaden)")
+//        // Thread.sleep(500)
+//        println("--Primäre Konstruktion beendet--")
 
     }
 
 
     // sekundärer Konstruktor: Pokemon ist automatisch vom Typ Normal
     constructor(name: String) : this(name, "Normal") {
-        println("---Sekundärer Konstruktor Call---")
-        // Thread.sleep(500)
-        println("Ein Pokemon namens $name mit Default den Typ 'Normal' wurde angelegt.")
-        // Thread.sleep(500)
-        println("---Sekundäre Konstruktion beendet---")
+//        println("---Sekundärer Konstruktor Call---")
+//        // Thread.sleep(500)
+//        println("Ein Pokemon namens $name mit Default den Typ 'Normal' wurde angelegt.")
+//        // Thread.sleep(500)
+//        println("---Sekundäre Konstruktion beendet---")
     }
 
     // erste Funktion: Tackle
