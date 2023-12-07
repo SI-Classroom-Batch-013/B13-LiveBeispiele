@@ -1,4 +1,4 @@
-
+import vorlesungen.Woche07Wiederholung.roundDouble
 
 // Primärer Konstruktor: direkt beim Erstellen der Klasse
 class Pokemon(var name: String, var type: String, var level: Int = 1, var isDead: Boolean = false) {
@@ -9,7 +9,7 @@ class Pokemon(var name: String, var type: String, var level: Int = 1, var isDead
 
     // init Block: da der Primäre Konstruktor keinen eigenen Körper hat (der Körper ist ja einfach die gesamte Klasse), brauchen wir den init Block. Der wird, wie die Körper der sekundären Konstruktoren, immer beim Initialisieren = Erstellen eines konkreten Pokemons aufgerufen
     init {
-        this.hp = 3.0
+        this.hp = 10.0
         this.ep = 0.0
         this.ap = level * 3.0
 
@@ -18,7 +18,7 @@ class Pokemon(var name: String, var type: String, var level: Int = 1, var isDead
         //Thread.sleep(500)
         println("$name hat $ap AP und folgende Attacken:")
         // Thread.sleep(500)
-        println("Tackle (${level + ap} Schaden)")
+        println("Tackle (${level * ap} Schaden)")
         // Thread.sleep(500)
         println("--Primäre Konstruktion beendet--")
 
@@ -26,7 +26,7 @@ class Pokemon(var name: String, var type: String, var level: Int = 1, var isDead
 
 
     // sekundärer Konstruktor: Pokemon ist automatisch vom Typ Normal
-    constructor(name: String) : this(name, "Normal") {
+    constructor(name: String): this(name, "Normal") {
         println("---Sekundärer Konstruktor Call---")
         // Thread.sleep(500)
         println("Ein Pokemon namens $name mit Default den Typ 'Normal' wurde angelegt.")
@@ -41,6 +41,7 @@ class Pokemon(var name: String, var type: String, var level: Int = 1, var isDead
         println("${gegner.name} hat vorher ${gegner.hp} HP...")
         println("$name's Angriff triggt ${gegner.name}!")
         gegner.hp -= this.ap
+        gegner.hp = roundDouble(gegner.hp)
         println("${gegner.name} verliert $ap HP und hat noch ${gegner.hp} HP!")
         // Abfangen, dass Gegner direkt stirbt:
         if (gegner.hp <= 0){
@@ -56,91 +57,75 @@ class Pokemon(var name: String, var type: String, var level: Int = 1, var isDead
             HP: $hp
         """.trimIndent()
     }
-}
 
-
-fun main() {
-    // Helden
-    var bisasam = Pokemon("Bisasam","Pflanze")
-    var schiggy = Pokemon("Schiggy","Wasser")
-    val glumanda = Pokemon("Glumanda", "Feuer")
-
-    // Gegner
-    val taubsi = Pokemon("Taubsi")
-    val rattfratz = Pokemon("Rattfratz")
-    val habitak = Pokemon("Habitak")
-
-    // spielRunde(helden: List<Pokemon>, gegner: List<Pokemon>)
-
-
-    // Game Loop Vorbereitung
-    // Variable, anhand der wir pruefen, ob das spiel vorbei ist
-    var gameOver: Boolean = false
-    // Rundencounter
-    var round: Int = 1
-    // Team an Helden
-    val helden: MutableList<Pokemon> = mutableListOf(bisasam,schiggy,glumanda)
-    // Team an Gegner
-    val gegnerListe: MutableList<Pokemon> = mutableListOf(taubsi,rattfratz,habitak)
-
-    while (!gameOver){
-        println("---Runde $round!---")
-        // print alle helden in meinem team und ihre aktionen --> ueber liste der helden iterieren
-        println("--Unser Team:--")
-        // print alle helden in meinem team und ihre aktionen --> ueber liste der helden iterieren
-        helden.forEach { println(it) }
-        // print alle gegner --> ueber liste der gegner iterieren
-        println("--Gegner Team:--")
-        var lebendeGegner = gegnerListe.filter { !it.isDead } // nur lebende Gegner werden rausgefiltert
-
-        // schleife, bis alle helden angegriffen haben:
-        // print: "1./2./3. held soll angreifen, welche attacke?"
-        for (held in helden) {
-            println("${held.name} soll angreifen. Wähle die Attacke per Zahleneingabe aus!")
-            println("[1] => Tackle, [2] => Heuler, etc")
-            val choice = readln().toInt()
-            when (choice){
-                1 -> {
-                    held.tackle(lebendeGegner.first())
-                    // angeben, dass ggf gegner bereits gestorben ist
-                    lebendeGegner = lebendeGegner.filter { !it.isDead }
+    fun useBeutel(beutel: Beutel): Int {
+        var inputValid = false
+        var input = 0
+        println(beutel)
+        println("Was willst du nutzen?")
+        println("[1] Heiltrank (${beutel.anzahlHeilTränke} übrig)")
+        println("[2] Booster (${beutel.anzahlBooster} übrig)")
+        println("[3] Beutel verlassen")
+        while (!inputValid) {
+            try {
+                input = readln().toInt()
+                when (input){
+                    1 -> {
+                        if (beutel.anzahlHeilTränke > 0){
+                            beutel.useHeilTrank(this)
+                        } else {
+                            println("Du hast keine Heiltränke übrig!")
+                            useBeutel(beutel)
+                        }
+                    }
+                    2 -> {
+                        if (beutel.anzahlBooster > 0){
+                            beutel.useBooster(this)
+                        } else {
+                            println("Du hast keine Booster übrig!")
+                            useBeutel(beutel)
+                        }
+                    }
+                    else -> {
+                        println("Ungültige Zahl eingegeben... Versuch's nochmal!")
+                        useBeutel(beutel)
+                    }
                 }
-               // 2 -> held.heuler(gegner.random())
-                // etc weitere attacken
+                inputValid = true
+                return input
+            } catch (e: Exception){
+                println("Ungültige Eingabe, bitte Zahl eingeben!")
             }
         }
-        // gegner greifen an: exact das gleiche
-        // hardcode, keine richtige Logik
-        println("Taubsi greift an! Bisasam verliert x hp....")
-
-        println("Runde $round beendet!")
-        println("ggf. Status von allen ausdrucken...")
-
-        // helden/gegner die gestorben sind, aus liste entfernen:
-
-//            for (gegner in lebendeGegner) { // ConcurrentModificationException: Taubsi fehlt, die Iteration diesr For Schleife wird gestórt.
-//                if (gegner.hp <= 0) {
-//                    gegnerListe.remove(gegner)
-//                }
-//            }
-             // tote pokemon erst nachtraeglich rausnehmen?
-            // pokemon boolean eigenschaft isDead geben?
-            // pokemon bei der attacke direkt "toeten" wenn die hp unter 0 fallen --> wir nehmen diese Variante
-
-        // pruefen, ob noch helden oder gegner uebrig sind
-        if (helden.isEmpty() || lebendeGegner.isEmpty()){
-            gameOver = true
-        }
-        round++
+        return input
     }
-    println("Spiel beendet! Alle Gegner sind besiegt!") // Logik: helden oder gegner tot?
+}
 
+class Beutel(){
+    var anzahlHeilTränke = 3
+    var anzahlBooster = 2
 
+    fun useHeilTrank(user: Pokemon){
+        println("${user.name} (${user.hp} HP) trinkt Trank...")
+        anzahlHeilTränke--
+        user.hp *= 1.3
+        user.hp = roundDouble(user.hp)
+        println("${user.name} hat jetzt ${user.hp}!")
+    }
 
+    fun useBooster(user: Pokemon){
+        println("${user.name} (${user.ap} AP) trinkt Booster...")
+        anzahlBooster--
+        user.ap *= 1.3
+        user.ap = roundDouble(user.ap)
+        println("${user.name}'s AP wurden um 30% erhöht!")
+    }
 
-
-
-
-
-
+    override fun toString():String{
+       return """
+            Beutelinhalt:
+            Tränke: $anzahlHeilTränke
+            Booster: $anzahlBooster
+        """.trimIndent()
+    }
 }
