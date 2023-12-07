@@ -32,20 +32,26 @@ fun spielRunde(helden: MutableList<Pokemon>, gegnerListe: MutableList<Pokemon>) 
 
     while (!gameOver){
         println("---Runde $round!---")
+        // Logik, um den Gegner Helfer zu beschwören
+        rufeHelfer(round, gegnerListe)
+
         // print alle helden in meinem team und ihre aktionen --> ueber liste der helden iterieren
         println("--Unser Team:--")
         // print alle helden in meinem team und ihre aktionen --> ueber liste der helden iterieren
-        helden.forEach { println(it) }
+        var lebendeHelden = helden.filter { !it.isDead }.toMutableList()
+        lebendeHelden.forEach { println(it) }
         // print alle gegner --> ueber liste der gegner iterieren
         println("--Gegner Team:--")
         var lebendeGegner = gegnerListe.filter { !it.isDead }.toMutableList() // nur lebende Gegner werden rausgefiltert
+        lebendeGegner.forEach { println(it) }
 
 
-        lebendeGegner = aktionen(helden, lebendeGegner)
+        lebendeGegner = aktionen(lebendeHelden, lebendeGegner)
         // gegner greifen an: exact das gleiche
         // hardcode, keine richtige Logik
-        println("Taubsi greift an! Bisasam verliert x hp....")
-        // lebendeHelden = aktionen(lebendeGegner, helden)
+
+        lebendeHelden = aktionen(lebendeGegner, lebendeHelden)
+        lebendeHelden = helden.filter { !it.isDead }.toMutableList()
 
         println("Runde $round beendet!")
         println("ggf. Status von allen ausdrucken...")
