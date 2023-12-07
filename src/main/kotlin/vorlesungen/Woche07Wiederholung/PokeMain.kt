@@ -56,6 +56,13 @@ fun spielRunde(helden: MutableList<Pokemon>, gegnerListe: MutableList<Pokemon>) 
 
 }
 
+private fun rufeHelfer(round: Int, gegnerListe: MutableList<Pokemon>) {
+    if (round == 2) {
+        println("Das Gegner Team holt sich in der $round. Runde einen Helfer dazu.....")
+        gegnerListe.add(Pokemon("Helfer-Pokemon Mauzi"))
+    }
+}
+
 private fun gameOver(helden: MutableList<Pokemon>, lebendeGegner: MutableList<Pokemon>, gameOver: Boolean): Boolean {
     var gameOver1 = gameOver
     if (helden.isEmpty()) {
