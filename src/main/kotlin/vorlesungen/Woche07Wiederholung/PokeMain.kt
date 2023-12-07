@@ -74,7 +74,9 @@ private fun aktionen(helden: MutableList<Pokemon>, lebendeGegner: MutableList<Po
     // schleife, bis alle helden angegriffen haben:
     // print: "1./2./3. held soll angreifen, welche attacke?"
     for (held in helden) {
+        inputValid = false
         println("${held.name} soll angreifen. Wähle die Attacke per Zahleneingabe aus!")
+
         while (!inputValid){
             println("[1] => Tackle, [2] => Heuler, etc")
             try {
