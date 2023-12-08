@@ -11,6 +11,10 @@ class Beutel {
     var anzahlBooster: Int = 2
     // haben.
 
+    // Beutel nur 1x pro Runde nutzbar:
+    // var beutelBenutzt = false
+
+
 
     // Heiltrank nutzen Methode
 
@@ -24,6 +28,10 @@ class Beutel {
             // benutzten Heiltrank wegschmeißen
             anzahlHeiltränke--
             println("${user.name} hat sich geheilt und jetzt ${user.hp} HP!")
+        } else {
+            println("Es sind keine Heiltränke mehr übrig!")
+            println("Wähle erneut!")
+            user.useBeutel(this)
         }
 
     }
@@ -38,6 +46,10 @@ class Beutel {
             // benutzten Heiltrank wegschmeißen
             anzahlBooster--
             println("${user.name} hat sich geheilt und jetzt ${user.ap} AP!")
+        } else {
+            println("Es sind keine Booster mehr übrig!")
+            println("Wähle erneut!")
+            user.useBeutel(this)
         }
 
     }

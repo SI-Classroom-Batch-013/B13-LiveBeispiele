@@ -18,17 +18,20 @@ fun main() {
     // Team an Gegner
     val gegnerListe: MutableList<Pokemon> = mutableListOf(taubsi,rattfratz,habitak)
 
-    spielRunde(helden, gegnerListe)
+    // Beutel
+    var beutel = Beutel()
+
+    spielRunde(helden, gegnerListe, beutel)
 
 }
 
-fun spielRunde(helden: MutableList<Pokemon>, gegnerListe: MutableList<Pokemon>) {
+fun spielRunde(helden: MutableList<Pokemon>, gegnerListe: MutableList<Pokemon>, beutel: Beutel) {
     // Game Loop Vorbereitung
     // Variable, anhand der wir pruefen, ob das spiel vorbei ist
     var gameOver: Boolean = false
     // Rundencounter
     var round: Int = 1
-
+    // auch hier: beutelBenutzt ? wenn ja -> gar nicht erst anzeigen
 
     while (!gameOver){
         println("---Runde $round!---")
@@ -46,11 +49,11 @@ fun spielRunde(helden: MutableList<Pokemon>, gegnerListe: MutableList<Pokemon>) 
         lebendeGegner.forEach { println(it) }
 
 
-        lebendeGegner = aktionen(lebendeHelden, lebendeGegner)
+        lebendeGegner = aktionen(lebendeHelden, lebendeGegner, beutel)
         // gegner greifen an: exact das gleiche
         // hardcode, keine richtige Logik
 
-        lebendeHelden = aktionen(lebendeGegner, lebendeHelden)
+        lebendeHelden = aktionen(lebendeGegner, lebendeHelden, beutel)
         lebendeHelden = helden.filter { !it.isDead }.toMutableList()
 
         println("Runde $round beendet!")
@@ -81,7 +84,7 @@ private fun gameOver(helden: MutableList<Pokemon>, lebendeGegner: MutableList<Po
     return gameOver1
 }
 
-private fun aktionen(helden: MutableList<Pokemon>, lebendeGegner: MutableList<Pokemon>): MutableList<Pokemon> {
+private fun aktionen(helden: MutableList<Pokemon>, lebendeGegner: MutableList<Pokemon>, beutel: Beutel): MutableList<Pokemon> {
     var lebendeGegner1 = lebendeGegner
     var inputValid = false
     // schleife, bis alle helden angegriffen haben:
@@ -91,7 +94,8 @@ private fun aktionen(helden: MutableList<Pokemon>, lebendeGegner: MutableList<Po
         println("${held.name} soll angreifen. Wähle die Attacke per Zahleneingabe aus!")
 
         while (!inputValid){
-            println("[1] => Tackle, [2] => Heuler, etc")
+            // wenn beutel benutzt: beutel gar nicht erst anzeigen
+            println("[1] => Tackle, [2] => Heuler, [3] => Beutel")
             try {
                 val choice = readln().toInt()
                 when (choice) {
@@ -103,6 +107,14 @@ private fun aktionen(helden: MutableList<Pokemon>, lebendeGegner: MutableList<Po
                     }
                     // 2 -> held.heuler(gegner.random())
                     // etc weitere attacken
+                    3 -> {
+                        // wenn beutelBenutzt -> return / continue (mit println vllt noch, das bescheid sagt, dass der beutel bereits benutzt wurde)
+                        var input = held.useBeutel(beutel)
+                        if (input == 1 || input == 2 ){
+                            inputValid = true
+                            // wenn beutel noch nicht benutzt wurde: beutelBenutzt = true
+                        }
+                    }
                     else -> {
                         println("Falsche Zahl eingegeben, gib eine gültige Zahl ein!")
                         // inputValid bleibt hier false -> Schleife geht von vorne los
