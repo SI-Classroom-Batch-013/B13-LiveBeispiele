@@ -1,3 +1,4 @@
+import vorlesungen.Woche07Wiederholung.Beutel
 
 
 // Primärer Konstruktor: direkt beim Erstellen der Klasse
@@ -55,5 +56,32 @@ class Pokemon(var name: String, var type: String, var level: Int = 1, var isDead
             Pokemon: $name
             HP: $hp
         """.trimIndent()
+    }
+
+    fun useBeutel(beutel: Beutel) {
+        println("Du willst also den Beutel nutzen...")
+        println("[1] => Heiltrank, [2] => Booster, [3] => Beutel verlassen")
+        try {
+            val input = readln().toInt()
+            when (input) {
+                1 -> {
+                    beutel.heiltrankNutzen(this)
+                }
+
+                2 -> {
+                    beutel.boosterNutzen(this)
+                }
+                3 -> { return }
+                else -> {
+                    println("Keine gültige Zahl eingegeben! Probier's nochmal...")
+                    useBeutel(beutel)
+                }
+            }
+        } catch (e: Exception){
+            println("Du musst eine gültige Zahl, keinen Buchstaben eingeben!")
+            useBeutel(beutel)
+        }
+
+
     }
 }

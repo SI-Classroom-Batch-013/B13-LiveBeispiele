@@ -17,11 +17,13 @@ class Beutel {
     fun heiltrankNutzen(user: Pokemon){
         // schauen ob noch Heiltränke da sind
         if (anzahlHeiltränke > 0) {
+            println("${user.name} hat ${user.hp} HP und heilt sich mit dem Trank...")
             // benutzen = ein Held bekommt 20% mehr HP
-            user.hp *= 1.2
+            user.hp *= 1.2 // x.xxxxx
+            user.hp = roundDouble(user.hp) // x.xx
             // benutzten Heiltrank wegschmeißen
             anzahlHeiltränke--
-
+            println("${user.name} hat sich geheilt und jetzt ${user.hp} HP!")
         }
 
     }
