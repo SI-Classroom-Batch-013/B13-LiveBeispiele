@@ -6,4 +6,5 @@ fun main() {
     var beutel: Beutel = Beutel()
     var bisasam: Pokemon = Pokemon("Bisasam")
     bisasam.useBeutel(beutel)
+
 }

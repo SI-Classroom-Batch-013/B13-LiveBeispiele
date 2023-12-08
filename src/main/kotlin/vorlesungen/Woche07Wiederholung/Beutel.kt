@@ -30,9 +30,15 @@ class Beutel {
 
     // Booster nutzen Methode
     fun boosterNutzen(user: Pokemon){
-        // schauen, ob noch Booster da sind
-        // benutzen = ein Held bekommt 20% mehr HP
-        // benutzten Booster wegschmeißen
+        if (anzahlBooster > 0) {
+            println("${user.name} hat ${user.ap} AP und boostet sich mit dem Trank...")
+            // benutzen = ein Held bekommt 20% mehr AP
+            user.ap *= 1.2 // x.xxxxx
+            user.ap = roundDouble(user.ap) // x.xx
+            // benutzten Heiltrank wegschmeißen
+            anzahlBooster--
+            println("${user.name} hat sich geheilt und jetzt ${user.ap} AP!")
+        }
 
     }
 
