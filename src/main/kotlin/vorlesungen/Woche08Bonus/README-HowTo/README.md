@@ -96,7 +96,7 @@ Dieser Text wird nur angezeigt, wenn ich ihn aufklicke.
 # So baut man Links ein:
 
 Link zum Repo: 
-[B12 LiveBeispiele](https://github.com/MarianneSyntax/B12-LiveBeispiele)
+[B13 LiveBeispiele](https://github.com/SI-Classroom-Batch-013/B13-LiveBeispiele)
 
 IntelliJ Markdown Guide:
 https://www.jetbrains.com/help/upsource/markdown-syntax.html#Headings
