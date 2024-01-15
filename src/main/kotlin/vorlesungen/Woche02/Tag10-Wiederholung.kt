@@ -6,7 +6,7 @@ fun main() {
     // Listen
 
     // liste an artists anlegen
-    var artistList: List<String> = listOf("Die Ärzte", "TuPac", "Macklemore", "Lorde", "Johnny Cash", "Die Ärzte", "TuPac")
+    var artistList: List<String> = listOf()
 
     // mutable kopie erstellen, auf die man schreibend zugreifen kann
     val mutableArtistList: MutableList<String> = artistList.toMutableList()
@@ -23,17 +23,22 @@ fun main() {
     // 2. letztes Element ersetzen durch Eingabe
     mutableArtistList[mutableArtistList.size-1] = input
 
-    // 3. erstes Element in Variable speichern und gleichzeitig entfernen
+    // 3. welches ist jetzt das letzte Element? In einer Variable speichern
+    val lastElement: String = mutableArtistList[mutableArtistList.size-1]
+    // ODER
+    val lastElement2: String = mutableArtistList.last()
+
+    // 4. erstes Element in Variable speichern und gleichzeitig entfernen
     var firstArtist: String = mutableArtistList.removeFirst()
 
-    // 4. welches ist jetzt das letzte Element? In einer Variable speichern
-    val lastElement: String = mutableArtistList[mutableArtistList.size-1]
-
-    val lastElement2: String = mutableArtistList.last
 
     // 5. liste alphabetisch sortieren, ausgeben
     mutableArtistList.sort()
     println(mutableArtistList)
+
+    // 6. random listenElement speichern
+    val random = mutableArtistList.random()
+    println(random)
 
 
 
@@ -41,7 +46,7 @@ fun main() {
     var firstName: String? = null
     println(firstName)
 
-    //firstName!!.lowercase()
+    firstName!!.length
 
     // Maps
 
@@ -70,7 +75,7 @@ fun main() {
 
     // ein paar operationen:
     // Was ist der Value von The Police und den anderen?
-    var policeSong: String = bestSong["The Police"]!! // flaschen key eingebene wirft
+    var policeSong: String = bestSong["The Police"]!! // falschen key eingebene wirft NullPointerException
     var johnnySong: String? = bestSong["Johnny Cash"]
     var heleneSong: String = bestSong.getValue("Helene Fischer") // falschen Key eingeben wirft NoSuchElementException
     var direSong: String? = bestSong.get("Johnny Cash")

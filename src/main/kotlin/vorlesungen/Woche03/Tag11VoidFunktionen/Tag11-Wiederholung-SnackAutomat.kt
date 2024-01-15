@@ -1,5 +1,4 @@
 package VORLESUNG.Woche03.Tag11VoidFunktionen
-
 fun main(){
 
     snackAutomat()

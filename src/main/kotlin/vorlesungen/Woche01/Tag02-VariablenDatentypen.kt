@@ -68,5 +68,4 @@ fun main() {
     isSunShining = false
     println("es ist $isSunShining, dass heute die Sonne scheint.")
 
-
 }
